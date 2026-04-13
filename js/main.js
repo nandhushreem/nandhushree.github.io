@@ -1,4 +1,4 @@
-const fullName = "Paladugu Ganesh Naidu";
+const fullName = "Nandhushree M";
 const typedNameEl = document.getElementById("typed-name");
 const scrollIndicator = document.getElementById("scroll-indicator");
 const footerYear = document.getElementById("year");
