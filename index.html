@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#08090d">
+  <meta name="description" content="Nandhu Shree — AI & GenAI portfolio">
+  <title>Nandhu Shree — AI & GenAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <header class="topbar" id="top">
+    <a class="brand" href="#top" aria-label="Nandhu Shree home"><span class="brand-mark" aria-hidden="true">T</span><span class="brand-name">Nandhu Shree</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" id="navCta" href="https://drive.google.com/file/d/16gJtABKVFiDvbU4jdngIZPcD3R6bRded/view?usp=sharing" target="_blank" rel="noreferrer">View resume <span>↗</span></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#work">Work</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span><span id="availability">AI • GenAI • Curious Builder</span></div>
+        <h1>Hi, I’m <em>Nandhu Shree.</em></h1>
+        <p class="hero-text" id="heroIntro"></p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">Explore work <span>↓</span></a>
+          <a class="btn ghost" id="heroResume" href="https://drive.google.com/file/d/16gJtABKVFiDvbU4jdngIZPcD3R6bRded/view?usp=sharing" target="_blank" rel="noreferrer">Resume <span>↗</span></a>
+        </div>
+        <div class="mini-stats" id="miniStats"></div>
+      </div>
+
+      <div class="hero-stage" aria-label="Interactive 3D AI visual">
+        <canvas id="heroCanvas"></canvas>
+        <img class="hero-photo" src="images/profile.png" alt="Nandhu Shree">
+        <div class="ai-orbit-label" aria-hidden="true"><span>AI</span><small>GEN</small></div>
+        <div class="stage-card stage-card-a">CURIOUS<br><strong>BY DEFAULT</strong></div>
+        <div class="stage-card stage-card-b">PROMPT<br><strong>→ BUILD</strong></div>
+        <div class="stage-caption">move your cursor</div>
+      </div>
+    </section>
+
+    <section class="marquee" aria-label="Focus areas"><div id="marqueeTrack"></div></section>
+
+    <section class="section wrap" id="work">
+      <div class="section-head"><div><p class="kicker">01 / WORK</p><h2>Things I’m exploring.</h2></div><p class="section-note">Practical experiments at the intersection of people, ideas, and intelligent tools.</p></div>
+      <div class="project-grid" id="projectGrid"></div>
+    </section>
+
+    <section class="section wrap" id="skills">
+      <div class="section-head"><div><p class="kicker">02 / SKILLS</p><h2>AI is the medium.</h2></div><p class="section-note">The stack can evolve. Curiosity is the constant.</p></div>
+      <div class="skill-layout">
+        <div class="skill-orbit" id="skillOrbit"><div class="orbit-core">AI<br>&amp;<br>GENAI</div></div>
+        <div class="skill-list" id="skillList"></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="achievements">
+      <div class="section-head"><div><p class="kicker">03 / PROGRESS</p><h2>Achievements & badges.</h2></div><p class="section-note">Designed so adding the next badge is literally copy → paste → edit.</p></div>
+      <div class="achievement-grid" id="achievementGrid"></div>
+    </section>
+
+    <section class="section about-section wrap" id="about">
+      <div class="about-card">
+        <div><p class="kicker">04 / ABOUT</p><h2 id="aboutTitle"></h2></div>
+        <div class="about-copy"><p id="aboutText"></p><div class="principles" id="principles"></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="resume">
+      <div class="resume-card">
+        <div><p class="kicker">05 / RESUME</p><h2>Curiosity, on paper.</h2><p>See the full story, experience, and current direction.</p></div>
+        <a class="btn primary" id="resumeLink" href="https://drive.google.com/file/d/16gJtABKVFiDvbU4jdngIZPcD3R6bRded/view?usp=sharing" target="_blank" rel="noreferrer">Open resume <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="section wrap" id="contact">
+      <div class="contact-card">
+        <div><p class="kicker">06 / CONTACT</p><h2>Let’s build something interesting.</h2><p id="contactText"></p></div>
+        <div class="contact-links" id="contactLinks"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap"><span>© <span id="year"></span> Nandhu Shree</span><span>Made with curiosity + AI.</span></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
