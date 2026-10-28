@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import ts from 'typescript';
+const source=readFileSync(new URL('../src/content.ts',import.meta.url),'utf8');
+const {outputText}=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext}});
+const {projects,person,milestones}=await import(`data:text/javascript;base64,${Buffer.from(outputText).toString('base64')}`);
+test('projects have unique identities and useful detail',()=>{assert.equal(new Set(projects.map(p=>p.id)).size,projects.length);for(const p of projects){assert.ok(p.detail.length>100);assert.ok(['Research','Experiments'].includes(p.category));assert.ok(['terrain','neural','flow'].includes(p.visual));}});
+test('external destinations are explicit HTTPS URLs',()=>{for(const url of [person.resume,person.github,...projects.map(p=>p.href).filter(Boolean),...milestones.map(m=>m.source)])assert.equal(new URL(url).protocol,'https:');});
+test('each journey claim includes evidence',()=>{for(const m of milestones){assert.ok(m.source);assert.ok(m.sourceLabel);}});
+test('professional portrait is a bundled asset',()=>assert.ok(existsSync(new URL('../public/portrait.webp',import.meta.url))));
