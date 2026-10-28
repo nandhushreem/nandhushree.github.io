@@ -1,0 +1,4 @@
+import {readFileSync,existsSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const names=['','about','projects','research','learning','contact'];const titles=new Set();
+for(const n of names){const path=n?`${n}/`:'';const html=readFileSync(`dist/${path}index.html`,'utf8');const title=html.match(/<title>(.*?)<\/title>/)[1];assert.ok(!titles.has(title));titles.add(title);assert.ok(html.includes(`href="https://nandhushreem.tech/${path}"`));assert.ok(html.includes('application/ld+json'));assert.ok(html.includes('<h1'));assert.ok(html.includes('Nandhushree'));for(const match of html.matchAll(/(?:src|href)="(\/assets\/[^\"]+)"/g))assert.ok(existsSync('dist'+match[1]));}assert.ok(readFileSync('dist/sitemap.xml','utf8').includes('/contact/'));console.log('Six static routes: unique titles, canonical links, structured data, headings and bundled assets verified.');

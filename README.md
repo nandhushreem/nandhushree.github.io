@@ -39,3 +39,11 @@ Public sources reviewed on 28 October 2026:
 - https://www.linkedin.com/posts/paladuguganeshnaidu_cybersecurity-socialengineering-livedemo-activity-7437865623851876354-0A5B
 
 Motion handles reveal, layout, tab, and scroll transitions. Lenis enhances wheel/anchor scrolling while touch retains native behavior. Reduced-motion preferences disable parallax, continuous animations, and smooth scrolling. Native dialogs provide focus trapping, Escape close, and focus restoration. Focus tabs support arrow-key navigation.
+
+## Six-page site and indexing
+
+Home, About, Projects, Research, Learning and Contact are emitted as real directories with `index.html` files. URLs have no file extensions. The build prerenders React content for crawlers and no-JavaScript reading, then React enables interactive motion. Each page has its own title, description, canonical URL, Open Graph metadata and Person/WebPage JSON-LD. The canonical origin is `https://nandhushreem.tech` in `src/Site.tsx`. The build emits a six-URL sitemap, robots.txt and a noindex 404. Submit `/sitemap.xml` in Google Search Console after domain verification. Indexing and rankings are controlled by search engines.
+
+Contact destinations were supplied by the owner. No HackerRank profile was supplied or reliably found. Ganesh’s CloudCostAI, NmapAnalyzer, GENAI API and TuxNest are explicitly credited learning references; no unverified contribution claim is made. FPGA was not confirmed as a separate project in the supplied sources.
+
+Run `node scripts/check-pages.mjs` after a production build to verify all static routes and metadata.
