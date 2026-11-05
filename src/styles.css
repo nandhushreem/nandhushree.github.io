@@ -37,3 +37,10 @@
 @keyframes scroll-nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 @keyframes orbit-glow{from{opacity:.55;transform:scale(.98)}to{opacity:1;transform:scale(1.02)}}
 @media(prefers-reduced-motion:reduce){.scroll-cue svg,.portrait-orbit{animation:none}}
+
+.status-dot{box-shadow:0 0 12px #895d6e55}
+[data-theme=dark] .status-dot{box-shadow:0 0 12px #d8bfca66}
+[data-theme=light] .portrait-orbit{background:radial-gradient(ellipse,#895d6e18,transparent 68%);border-color:#895d6e33}
+[data-theme=light] .portrait-orbit:before{border-color:#895d6e20}
+[data-theme=dark] .portrait-orbit{background:radial-gradient(ellipse,#d8bfca22,transparent 68%);border-color:#d8bfca35}
+[data-theme=dark] .portrait-orbit:before{border-color:#d8bfca20}
